@@ -1,0 +1,54 @@
+
+.header .headerbg{background:#242532 }
+.header .headerbg img{width: 100%}
+.header .headerbg p{position: absolute;color: #FFF;display: block;width: 100%;bottom:29%;left: 0;text-align: center;font-size:2rem;opacity: 0.8}
+
+.newCon{width: 80%;margin:3% auto 0 auto;}
+.newCon .newitemCon{padding: 10%;box-sizing: border-box;background: #FFF;cursor: pointer;margin-bottom: 10%}
+.newCon .newitemCon:hover{-webkit-box-shadow:0 15px 30px rgba(0,0,0,0.1);box-shadow:0 15px 30px rgba(0,0,0,0.1);-webkit-transform:translate3d(0, -2px, 0);transform:translate3d(0, -2px, 0)}
+.newCon .newitemCon img{width: 100%;display: block;}
+.newCon .newitemCon .bottom h1{font-size: 1.2rem;margin:2% 0}
+.newCon .newitemCon .bottom p{font-size: 0.9rem;color:#b0b0b0;text-align:left;line-height: 20px;}
+
+.page{width: 80%;margin:3% auto;padding-left: 15px;padding-right: 15px;}
+.page>div{font-size: 1.2rem;padding:1.2%;box-sizing: border-box;text-align: center;cursor: pointer;border-radius: 5px;}
+.page .pre{width:20%;float: left;background:#999;color: #FFF;}
+.page .next{width:20%;float: right;background:#ff6600;color: #FFF;}
+
+
+@media screen and (max-device-width:600px){
+    .header .headerbg p{font-size:0.8rem}
+    .productCon .con1{width:100%;}
+    .productCon .con1 .left{padding: 0}
+    .swiper-pagination-bullet{width: 2px;height: 2px;}
+    .swiper-container-horizontal>.swiper-pagination-bullets, .swiper-pagination-custom, .swiper-pagination-fraction{bottom:0}
+    .productCon{width: 92%}
+    .productCon .con1 .right .title{font-size: 1rem;margin:5% 0 1% 0}
+    .productCon .con1 .right table tr td{font-size:0.8rem;padding:0 0;min-width: 60px;}
+
+    .productCon .con .title{font-size: 1rem;}
+}
+@media screen and (min-device-width:360px) and (max-device-width:419px){
+    *,html,body{font-size: 13px;}
+}
+@media screen and (min-device-width:420px) and (max-device-width:640px){
+    *,html,body{font-size: 13px;}
+}
+@media screen and (min-device-width:641px) and (max-device-width:899px){
+    *,html,body{font-size: 13px;}
+}
+@media screen and (min-width: 900px) {
+    *,html,body{font-size: 14px;}
+}
+
+@media screen and (min-device-width:496px) and (max-device-width:725px){
+
+}
+
+@media screen and (min-device-width:726px) and (max-device-width:870px) {
+
+}
+
+@media screen and (max-width: 495px) {
+
+}

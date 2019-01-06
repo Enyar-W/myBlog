@@ -2,17 +2,25 @@ server:
   port: 8090
 
 spring:
+  thymeleaf:
+    classpath: /templates/
+    mode: LEGACYHTML5
+    cache: false
+    suffix: .html
   datasource:
     type: com.alibaba.druid.pool.DruidDataSource
     #MySql配置
     driver-class-name: com.mysql.jdbc.Driver
-    url: jdbc:mysql://127.0.0.1:3306/halodb?serverTimezone=Shanghai&characterEncoding=utf8&useSSL=false
+    url: jdbc:mysql://127.0.0.1:3306/blog?serverTimezone=Shanghai&characterEncoding=utf8&useSSL=false
     username: root
     password: 123456
   servlet:
     multipart:
       max-file-size: 10MB
       max-request-size: 10MB
+  devtools:
+    restart:
+      enabled: true
   # 多语言资源文件路径
   messages:
     basename: i18n/messages
