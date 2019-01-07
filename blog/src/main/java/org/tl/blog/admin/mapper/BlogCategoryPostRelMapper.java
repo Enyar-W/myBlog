@@ -1,12 +1,12 @@
 package org.tl.blog.admin.mapper;
 
 import org.tl.blog.admin.entity.BlogCategoryPostRel;
-import tk.mybatis.mapper.common.BaseMapper;
+import org.tl.blog.common.base.BaseDao;
 
 /**
 *  @author TerryLam
 */
-public interface BlogCategoryPostRelMapper extends BaseMapper<BlogCategoryPostRel> {
+public interface BlogCategoryPostRelMapper extends BaseDao<BlogCategoryPostRel> {
 
 
 }

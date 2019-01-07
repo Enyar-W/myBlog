@@ -1,6 +1,9 @@
 package org.tl.blog.admin.entity;
 import lombok.Data;
 
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
 import java.io.Serializable;
 import java.util.Date;
 
@@ -19,6 +22,8 @@ public class BlogPost implements Serializable {
     * 主键Id
     * isNullAble:0
     */
+    @Id
+    @GeneratedValue(generator = "JDBC")
     private Integer postId;
 
     /**

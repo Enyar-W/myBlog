@@ -2,6 +2,7 @@ package org.tl.blog.admin.entity;
 
 import lombok.Data;
 
+import javax.persistence.Id;
 import java.io.Serializable;
 import java.util.Date;
 
@@ -21,6 +22,7 @@ public class SysUser implements Serializable {
     * 用户id
     * isNullAble:0
     */
+    @Id
     private Integer userId;
 
     /**

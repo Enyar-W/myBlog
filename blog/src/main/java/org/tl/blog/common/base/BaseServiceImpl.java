@@ -1,16 +1,18 @@
 package org.tl.blog.common.base;
 
+import com.github.pagehelper.PageHelper;
+import lombok.extern.log4j.Log4j2;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.stereotype.Service;
-import org.tl.blog.admin.mapper.BaseMapper;
-
+import org.tl.blog.common.utils.Pager;
 import java.io.Serializable;
 
-@Service
-public class BaseServiceImpl<T> implements BaseService<T>{
+import java.util.List;
+
+@Log4j2
+public class BaseServiceImpl<M extends BaseDao<T>, T> implements BaseService<T>{
 
     @Autowired
-    private BaseMapper<T> baseMapper;
+    protected M baseMapper;
 
     @Override
     public int insert(T entity) {
@@ -32,6 +34,18 @@ public class BaseServiceImpl<T> implements BaseService<T>{
 
     @Override
     public T findById(Serializable id) {
+        //Weekend<T> weekend = new Weekend<T>( (Class < T > ) ((ParameterizedType) getClass().getGenericSuperclass()).getActualTypeArguments()[ 0 ]);
+        //Example.Criteria criteria = weekend.createCriteria();
         return baseMapper.selectByPrimaryKey(id);
+    }
+
+    @Override
+    public Pager<T> pager(Integer start, Integer pageSize,T t) {
+        PageHelper.startPage(start,pageSize);
+        List<T> list = baseMapper.select(t);
+        int totalNum = baseMapper.selectCount(t);
+        Pager<T> pager = new Pager<>(start,pageSize,totalNum);
+        pager.setResult(list);
+        return pager;
     }
 }

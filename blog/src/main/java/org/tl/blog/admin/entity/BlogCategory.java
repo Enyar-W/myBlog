@@ -1,6 +1,8 @@
 package org.tl.blog.admin.entity;
 import lombok.Data;
 
+import javax.persistence.GeneratedValue;
+import javax.persistence.Id;
 import java.io.Serializable;
 import java.util.*;
 
@@ -19,6 +21,8 @@ public class BlogCategory implements Serializable {
     * 主键Id
     * isNullAble:0
     */
+    @Id
+    @GeneratedValue(generator = "JDBC")
     private Integer cateId;
 
     /**

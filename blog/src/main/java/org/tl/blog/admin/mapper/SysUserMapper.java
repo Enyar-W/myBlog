@@ -1,12 +1,15 @@
 package org.tl.blog.admin.mapper;
 
 
+import org.springframework.stereotype.Repository;
 import org.tl.blog.admin.entity.SysUser;
-import tk.mybatis.mapper.common.BaseMapper;
+import org.tl.blog.common.base.BaseDao;
+
 /**
 *  @author TerryLam
 */
-public interface SysUserMapper extends BaseMapper<SysUser>{
+@Repository
+public interface SysUserMapper extends BaseDao<SysUser> {
 
 
 }
