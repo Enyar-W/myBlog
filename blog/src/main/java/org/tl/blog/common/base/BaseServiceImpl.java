@@ -16,20 +16,17 @@ public class BaseServiceImpl<M extends BaseDao<T>, T> implements BaseService<T>{
 
     @Override
     public int insert(T entity) {
-        baseMapper.insert(entity);
-        return 0;
+        return baseMapper.insert(entity);
     }
 
     @Override
     public int delete(Serializable id) {
-        baseMapper.deleteByPrimaryKey(id);
-        return 0;
+        return baseMapper.deleteByPrimaryKey(id);
     }
 
     @Override
     public int update(T entity) {
-        baseMapper.updateByPrimaryKey(entity);
-        return 0;
+        return baseMapper.updateByPrimaryKey(entity);
     }
 
     @Override
