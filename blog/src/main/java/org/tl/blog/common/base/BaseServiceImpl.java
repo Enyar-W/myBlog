@@ -16,7 +16,8 @@ public class BaseServiceImpl<M extends BaseDao<T>, T> implements BaseService<T>{
 
     @Override
     public int insert(T entity) {
-        return baseMapper.insert(entity);
+        return baseMapper.insertUseGeneratedKeys(entity);
+       // return baseMapper.insert(entity);
     }
 
     @Override

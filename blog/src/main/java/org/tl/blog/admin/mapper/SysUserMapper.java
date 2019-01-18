@@ -11,5 +11,6 @@ import org.tl.blog.common.base.BaseDao;
 @Repository
 public interface SysUserMapper extends BaseDao<SysUser> {
 
+    public SysUser userlLogin(SysUser sysUser);
 
 }

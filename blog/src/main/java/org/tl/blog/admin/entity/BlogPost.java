@@ -1,5 +1,7 @@
 package org.tl.blog.admin.entity;
 import lombok.Data;
+import tk.mybatis.mapper.annotation.KeySql;
+import tk.mybatis.mapper.code.ORDER;
 
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
@@ -23,7 +25,7 @@ public class BlogPost implements Serializable {
     * isNullAble:0
     */
     @Id
-    @GeneratedValue(generator = "JDBC")
+    @KeySql(useGeneratedKeys = true, order = ORDER.AFTER)
     private Integer postId;
 
     /**

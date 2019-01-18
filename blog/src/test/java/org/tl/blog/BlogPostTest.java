@@ -2,11 +2,16 @@ package org.tl.blog;
 
 import org.junit.Test;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.tl.blog.admin.entity.BlogCategoryPostRel;
 import org.tl.blog.admin.entity.BlogPost;
 import org.tl.blog.admin.entity.SysUser;
+import org.tl.blog.admin.mapper.BlogCategoryPostRelMapper;
 import org.tl.blog.admin.service.BlogPostService;
 import org.tl.blog.common.upload.UploadService;
 import org.tl.blog.common.utils.Pager;
+
+import java.util.ArrayList;
+import java.util.List;
 
 public class BlogPostTest extends BlogApplicationTests {
 
@@ -15,6 +20,9 @@ public class BlogPostTest extends BlogApplicationTests {
 
     @Autowired
     UploadService uploadService;
+
+    @Autowired
+    private BlogCategoryPostRelMapper categoryPostRelMapper;
 
     @Test
     public void insert() {
@@ -63,7 +71,7 @@ public class BlogPostTest extends BlogApplicationTests {
                 "<p>每个线程在往某个ThreadLocal里塞值的时候，都会往自己的ThreadLocalMap里存，读也是以某个ThreadLocal作为引用，在自己的map里找对应的key，从而实现了线程隔离。</p>\n" +
                 "<h3 id=\"3-threadlocal-api\">3.ThreadLocal的API</h3>\n" +
                 "<p>ThreadLocal的API其实没多少好介绍的，这些API介绍网上早已烂大街了。</p>\n" +
-                "<p><img src=\"https://mmbiz.qpic.cn/mmbiz_png/eQPyBffYbufJaqQkvibaMUhGxB1NLwZGSw5iccsM2n5SCDk92HXLMY4mhkqzHcMp2j2w0sic0vYnnat5zyCCApBAg/640?wx_fmt=png&amp;tp=webp&amp;wxfrom=5&amp;wx_lazy=1&amp;wx_co=1\" alt=\"img\"></p>\n" +
+                "<p><img src=\"http://img.terrylam.cn/eQPyBffYbufJaqQkvibaMUhGxB1NLwZGSw5iccsM2n5SCDk92HXLMY4mhkqzHcMp2j2w0sic0vYnnat5zyCCApBAg/640?wx_fmt=png&amp;tp=webp&amp;wxfrom=5&amp;wx_lazy=1&amp;wx_co=1\" alt=\"img\"></p>\n" +
                 "<h3 id=\"4-threadlocalmap-\">4.ThreadLocalMap的源码实现</h3>\n" +
                 "<p>ThreadLocalMap的源码实现，才是我们读ThreadLocal源码真正要领悟的。看看大师Doug Lea和Joshua Bloch的鬼斧神工之作。</p>\n" +
                 "<p><img src=\"https://mmbiz.qpic.cn/mmbiz_png/eQPyBffYbufJaqQkvibaMUhGxB1NLwZGSrFEHKRvzT6mQaV5djEXYsRKYepKKVQEaJIakbLX9W9ZcFzDKFY53tg/640?wx_fmt=png&amp;tp=webp&amp;wxfrom=5&amp;wx_lazy=1&amp;wx_co=1\" alt=\"img\"></p>\n" +
@@ -550,7 +558,25 @@ public class BlogPostTest extends BlogApplicationTests {
                 "<h3 id=\"7-\">7. 总结</h3>\n" +
                 "<p>本博文重点介绍了ThreadLocal中ThreadLocalMap的大致实现原理以及ThreadLocal内存泄露的问题以及简略介绍InheritableThreadLocal。作为Josh Bloch和Doug Lea两位大师之作，ThreadLocal本身实现的算法与技巧还是很优雅的。</p>\n" +
                 "<p>在开发过程中，ThreadLocal用到恰到好处的话，可以消除一些代码的重复。但也要注意过度使用ThreadLocal很容易加大类之间的耦合度与依赖关系（开发过程可能会不得不过度考虑某个ThreadLocal在调用时是否已有值，存放的是哪个类放的什么值）。</p>\n";
-        String s = uploadService.handlerOuterImage(content);
-        System.out.println(s);
+        //String s = uploadService.handlerOuterImage(content);
+        BlogPost blogPost = new BlogPost();
+        blogPost.setPostId(3);
+        blogPost.setPostContent(content);
+        List<Integer> tagIds = new ArrayList<>();
+        List<Integer> cateIds = new ArrayList<>();
+        for(int i = 1 ;i< 10;i++){
+            tagIds.add(i);
+            //cateIds.add(i);
+        }
+        cateIds.add(5);
+        cateIds.add(4);
+        cateIds.add(11);
+        cateIds.add(6);
+        cateIds.add(1);
+        cateIds.add(20);
+        //postService.savePost(blogPost,cateIds,tagIds);
+        postService.updatePost(blogPost,cateIds,tagIds);
+        //System.out.println(s);
     }
+
 }

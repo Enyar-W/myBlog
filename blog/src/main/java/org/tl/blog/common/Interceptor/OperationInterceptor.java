@@ -15,7 +15,7 @@ import java.util.Properties;
 })
 @Log4j2
 public class OperationInterceptor implements Interceptor {
-   // private static final Logger LOGGER = LoggerFactory.getLogger(EnvInterceptor.class);
+    // private static final Logger LOGGER = LoggerFactory.getLogger(EnvInterceptor.class);
 
     @Override
     public Object intercept(Invocation invocation) throws Throwable {
@@ -25,15 +25,26 @@ public class OperationInterceptor implements Interceptor {
         SqlCommandType sqlCommandType = mappedStatement.getSqlCommandType();
         if (SqlCommandType.INSERT.equals(sqlCommandType)) {
             //插入操作时，自动插入env
-            Field fieldCreate = object.getClass().getDeclaredField("createAt");
-            fieldCreate.setAccessible(true);
-            fieldCreate.set(object, new Date());
-        }else{
+            try {
+                Field fieldCreate = object.getClass().getDeclaredField("createAt");
+                if (fieldCreate != null) {
+                    fieldCreate.setAccessible(true);
+                    fieldCreate.set(object, new Date());
+                }
+            } catch (Exception e) {
+                //  invocation.proceed();
+            }
+
+        } else {
             if (SqlCommandType.UPDATE.equals(sqlCommandType)) {
                 //update时，自动更新updated_at
-                Field fieldUpdate = object.getClass().getDeclaredField("updateAt");
-                fieldUpdate.setAccessible(true);
-                fieldUpdate.set(object, new Date());
+                try {
+                    Field fieldUpdate = object.getClass().getDeclaredField("updateAt");
+                    fieldUpdate.setAccessible(true);
+                    fieldUpdate.set(object, new Date());
+                } catch (Exception e) {
+                    //  invocation.proceed();
+                }
             }
         }
         return invocation.proceed();

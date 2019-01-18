@@ -1,5 +1,6 @@
 package org.tl.blog.admin.mapper;
 
+import org.apache.ibatis.annotations.Param;
 import org.tl.blog.admin.entity.BlogPostTagRel;
 import org.tl.blog.common.base.BaseDao;
 
@@ -8,5 +9,6 @@ import org.tl.blog.common.base.BaseDao;
 */
 public interface BlogPostTagRelMapper extends BaseDao<BlogPostTagRel> {
 
+    public int deleteByPostId(@Param("postId") Integer postId);
 
 }

@@ -5,10 +5,11 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
+import org.tl.blog.common.base.BaseController;
 
 @Controller
 @RequestMapping("/admin")
-public class HomeController {
+public class HomeController extends BaseController {
 
     @RequestMapping("/indexOk")
     @ResponseBody

@@ -1,4 +1,4 @@
-package org.tl.blog.admin.entity;
+package org.tl.blog.common.log.entity;
 
 import lombok.Data;
 
@@ -43,6 +43,12 @@ public class SysLog implements Serializable {
     * isNullAble:1
     */
     private String logContent;
+
+    /**
+     * 响应状态码
+     * isNullAble:1
+     */
+    private String status;
 
     /**
     * 创建时间

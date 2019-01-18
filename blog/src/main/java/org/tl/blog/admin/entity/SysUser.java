@@ -1,7 +1,10 @@
 package org.tl.blog.admin.entity;
 
 import lombok.Data;
+import tk.mybatis.mapper.annotation.KeySql;
+import tk.mybatis.mapper.code.ORDER;
 
+import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import java.io.Serializable;
 import java.util.Date;
@@ -23,6 +26,7 @@ public class SysUser implements Serializable {
     * isNullAble:0
     */
     @Id
+    @KeySql(useGeneratedKeys = true, order = ORDER.AFTER)
     private Integer userId;
 
     /**

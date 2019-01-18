@@ -6,6 +6,7 @@ import org.apache.ibatis.plugin.Interceptor;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.tl.blog.common.Interceptor.OperationInterceptor;
+import tk.mybatis.spring.mapper.MapperScannerConfigurer;
 
 import java.util.Properties;
 
@@ -28,4 +29,7 @@ public class MybatisConfig {
         pageHelper.setProperties(properties);
         return pageHelper;
     }
+
+
+
 }
