@@ -12,6 +12,8 @@ public interface BaseService<T> {
 
     public int update(T entity);//修改
 
+    public int updateNotNull(T entity);  //修改非空
+
     public T findById(Serializable id);//查询
 
     public Pager<T> pager(Integer start, Integer pageSize, T t);//分页查询

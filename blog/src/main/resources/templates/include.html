@@ -21,11 +21,15 @@
 	<link href="css/animate.css" th:href="@{/css/animate.css}"
 		  rel="stylesheet">
 	<link href="/css/plugins/chosen/chosen.css" rel="stylesheet">
-	<link href="/css/style.css?v=4.1.0" th:href="@{/css/style.css?v=4.1.0}"
+	<link href="/css/style.css?v=4.1.0" th:href="@{/css/style.css?v=4.1.0 }"
 		  rel="stylesheet">
 	<!-- 引入样式 element--ui-->
 	<link rel="stylesheet" href="https://unpkg.com/element-ui@2.4.11/lib/theme-chalk/index.css">
-	<script src="//unpkg.com/vue/dist/vue.js"></script>
+	<script src="https://unpkg.com/vue@2.5.22/dist/vue.js"></script>
+	<script src="https://unpkg.com/vue-resource@1.5.1/dist/vue-resource.min.js"></script>
+	<!-- 引入组件库 element--ui -->
+	<script src="https://unpkg.com/element-ui@2.4.11/lib/index.js"></script>
+
 </head>
 <div th:fragment="footer" xmlns:th="http://www.w3.org/1999/xhtml">
 	<script src="/js/jquery.min.js?v=2.1.4"></script>
@@ -46,6 +50,4 @@
 	<!--summernote-->
 	<script src="/js/plugins/summernote/summernote.js"></script>
 	<script src="/js/plugins/summernote/summernote-zh-CN.min.js"></script>
-	<!-- 引入组件库 element--ui -->
-	<script src="https://unpkg.com/element-ui@2.4.11/lib/index.js"></script>
 </div>

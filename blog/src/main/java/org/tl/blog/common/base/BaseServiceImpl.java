@@ -46,4 +46,9 @@ public class BaseServiceImpl<M extends BaseDao<T>, T> implements BaseService<T>{
         pager.setResult(list);
         return pager;
     }
+
+    @Override
+    public int updateNotNull(T entity) {
+        return baseMapper.updateByPrimaryKeySelective(entity);
+    }
 }

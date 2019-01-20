@@ -6,7 +6,9 @@ import org.springframework.web.bind.ServletRequestDataBinder;
 import org.springframework.web.bind.annotation.InitBinder;
 import org.tl.blog.common.Interceptor.DateConvertEditor;
 import org.tl.blog.common.log.service.SysLogService;
+import org.tl.blog.common.utils.ContextHolderUtils;
 
+import javax.servlet.http.HttpServletRequest;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
@@ -47,5 +49,40 @@ public class BaseController {
 
         return result;
     }
+
+    public Integer getParamInt(String paramName){
+        HttpServletRequest request = ContextHolderUtils.getRequest();
+        String parameter = request.getParameter(paramName);
+        Integer value = Integer.valueOf(parameter);
+        return value;
+    }
+
+    public Integer getParamInt(String paramName,Integer defalutValue){
+        HttpServletRequest request = ContextHolderUtils.getRequest();
+        String parameter = request.getParameter(paramName);
+        Integer value = null;
+        if(parameter == null){
+            value = defalutValue;
+        }else{
+            value = Integer.valueOf(parameter);
+        }
+        return value;
+    }
+
+    public String getParamString(String paramName,String defalutValue){
+        HttpServletRequest request = ContextHolderUtils.getRequest();
+        String value = request.getParameter(paramName);
+        if(value == null){
+            value = defalutValue;
+        }
+        return value;
+    }
+
+    public String getParamString(String paramName){
+        HttpServletRequest request = ContextHolderUtils.getRequest();
+        String value = request.getParameter(paramName);
+        return value;
+    }
+
 
 }
